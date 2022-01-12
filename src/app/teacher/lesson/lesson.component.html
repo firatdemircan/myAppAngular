@@ -1,1 +1,29 @@
 <p>lesson works!</p>
+<table>
+  <tr>
+    <td>
+      City Id
+    </td>
+    <td>
+      City Name
+    </td>
+    <td>
+      City Branch
+    </td>
+  </tr>
+  <div *ngFor="let city in cities">
+
+
+  <tr >
+    <td>
+      {{city.id}}
+    </td>
+    <td>
+      {{city.cityname}}
+    </td>
+    <td>
+      {{city.branch.branchName}}
+    </td>
+  </tr>
+  </div>
+</table>

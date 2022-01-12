@@ -9,14 +9,15 @@ import {RequestService} from "../../shared/request.service";
 })
 export class LessonComponent implements OnInit {
 
+  cities :[];
+
   constructor(private service : RequestService) { }
 
   ngOnInit(): void {
 
     this.service.getBy("city/getAll",'get').subscribe((x)=>{
-      // @ts-ignore
       console.log(x.data)
-
+      this.cities = x.data
     });
 
   }
