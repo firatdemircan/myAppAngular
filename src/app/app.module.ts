@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes, ROUTES} from "@angular/router";
 import {SharedModule} from "./shared/shared.module";
-import {LoginComponent} from "./login/login/login.component";
-import {AuthGuard} from "./shared/guards/auth.guard";
+import {LoginComponent} from "./views/login/login/login.component";
+import {AuthGuard} from "./guards/auth.guard";
 import {FormsModule} from "@angular/forms";
 
 
@@ -13,13 +13,13 @@ const routes: Routes = [
   {
     path: 'teacher',
     loadChildren: () =>
-      import('./teacher/teacher.module').then((x) => x.TeacherModule),
+      import('./views/teacher/teacher.module').then((x) => x.TeacherModule),
     canActivate :[AuthGuard]
   },
   {
     path: 'student',
     loadChildren: () =>
-      import('./student/student.module').then((x) => x.StudentModule),
+      import('./views/student/student.module').then((x) => x.StudentModule),
     canActivate :[AuthGuard]
   },
   { path: '**', component: LoginComponent },

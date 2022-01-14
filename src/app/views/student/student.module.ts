@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClasesComponent } from './clases/clases.component';
 import {RouterModule, Routes, ROUTES} from "@angular/router";
-import {AuthGuard} from "../shared/guards/auth.guard";
+import {AuthGuard} from "../../guards/auth.guard";
 
 const roots:Routes =[{
 

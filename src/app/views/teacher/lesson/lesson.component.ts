@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RequestService} from "../../shared/request.service";
+import {RequestService} from "../../../service/request.service";
 
 @Component({
   selector: 'app-lesson',

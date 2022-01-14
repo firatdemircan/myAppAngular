@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BaserequestService} from "../../shared/baserequest.service";
-import {RequestService} from "../../shared/request.service";
+import {BaserequestService} from "../../../service/baserequest.service";
+import {RequestService} from "../../../service/request.service";
 
 @Component({
   selector: 'app-clases',
