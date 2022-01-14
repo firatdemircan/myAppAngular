@@ -11,19 +11,34 @@
       City Branch
     </td>
   </tr>
-  <div *ngFor="let city in cities">
 
+  <ng-container *ngFor="let city of cities">
+    <ng-container *ngIf="city.id>10">
+      <tr>
+        <td>
+          {{city.id}}
+        </td>
+        <td>
+          {{city.cityName}}
+        </td>
+        <td>
+          {{city.branch.branchName}}
+        </td>
 
-  <tr >
-    <td>
-      {{city.id}}
-    </td>
-    <td>
-      {{city.cityname}}
-    </td>
-    <td>
-      {{city.branch.branchName}}
-    </td>
-  </tr>
-  </div>
+        <td>
+          <ng-container *ngIf="city.id == 13"
+                        [ngTemplateOutlet]="myTempo" [ngTemplateOutletContext]="{city:city}">
+          </ng-container>
+        </td>
+        <td>
+          <button (click)="remove(city.id)">Sil</button>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-container>
 </table>
+
+
+<ng-template #myTempo let-city='city'>
+  {{city.branch.region.regionName}}
+</ng-template>
