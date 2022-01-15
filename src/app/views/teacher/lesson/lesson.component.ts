@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestService} from "../../../service/request.service";
+import {valueReferenceToExpression} from "@angular/compiler-cli/src/ngtsc/annotations/src/util";
 
 @Component({
   selector: 'app-lesson',
@@ -31,11 +32,17 @@ export class LessonComponent implements OnInit {
       let city = this.cities.find(item => item.id == 5);
       console.log(city)
 
+      //finding the index of the element
+      console.log(this.cities.indexOf(city));
+
+
+
       //find array with specific condition
       this.cities = this.cities.filter(item => item.id<14)
 
     });
 
+    let y = this.f(25);
 
   }
 
@@ -43,5 +50,13 @@ export class LessonComponent implements OnInit {
   console.log(id);
     //remove any object within an array
     this.cities.splice(this.cities.findIndex(item=>item.id == id),1);
+
+
+    }
+
+    f(age, text?) {
+    return (age > 180) ? true:"asdf"
   }
+
+
 }
