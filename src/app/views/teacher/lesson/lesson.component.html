@@ -7,9 +7,6 @@
     <td>
       City Name
     </td>
-    <td>
-      City Branch
-    </td>
   </tr>
 
   <ng-container *ngFor="let city of cities">
@@ -20,9 +17,6 @@
         </td>
         <td>
           {{city.cityName}}
-        </td>
-        <td>
-          {{city.branch.branchName}}
         </td>
 
         <td>
@@ -40,5 +34,5 @@
 
 
 <ng-template #myTempo let-city='city'>
-  {{city.branch.region.regionName}}
+  {{city.cityName}}
 </ng-template>

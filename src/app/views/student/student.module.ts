@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ClasesComponent } from './clases/clases.component';
 import {RouterModule, Routes, ROUTES} from "@angular/router";
 import {AuthGuard} from "../../guards/auth.guard";
+import {StudentGuard} from "../../guards/student.guard";
 
 const roots:Routes =[{
 
@@ -11,7 +12,7 @@ const roots:Routes =[{
   children: [
 
   ],
-  canActivate: [AuthGuard],
+  canActivate: [StudentGuard],
 }]
 
 @NgModule({

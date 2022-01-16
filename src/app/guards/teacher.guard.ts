@@ -13,7 +13,7 @@ export class TeacherGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    console.log("Guard For Student Module")
+    console.log("Guard For Teacher Module")
     return this.authService.authenticated
 
   }
