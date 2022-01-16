@@ -1,6 +1,6 @@
 export interface Result {
 
-  status:boolean;
+  result:boolean;
   message:String;
   data? : object;
 }

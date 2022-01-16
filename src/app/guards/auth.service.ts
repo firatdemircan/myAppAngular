@@ -8,8 +8,11 @@ export class AuthService {
   constructor() { }
 
   get token(): string {
-    // @ts-ignore
     return sessionStorage.getItem('token');
+  }
+
+  get role(): string {
+    return sessionStorage.getItem('role');
   }
 
   loginSuccess(dt:any){

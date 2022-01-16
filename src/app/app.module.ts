@@ -6,6 +6,8 @@ import {SharedModule} from "./shared/shared.module";
 import {LoginComponent} from "./views/login/login/login.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {FormsModule} from "@angular/forms";
+import {TeacherGuard} from "./guards/teacher.guard";
+import {StudentGuard} from "./guards/student.guard";
 
 
 const routes: Routes = [
@@ -14,13 +16,13 @@ const routes: Routes = [
     path: 'teacher',
     loadChildren: () =>
       import('./views/teacher/teacher.module').then((x) => x.TeacherModule),
-    canActivate :[AuthGuard]
+    canActivate :[TeacherGuard]
   },
   {
     path: 'student',
     loadChildren: () =>
       import('./views/student/student.module').then((x) => x.StudentModule),
-    canActivate :[AuthGuard]
+    canActivate :[StudentGuard]
   },
   { path: '**', component: LoginComponent },
 ];

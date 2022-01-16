@@ -9,7 +9,7 @@ import {valueReferenceToExpression} from "@angular/compiler-cli/src/ngtsc/annota
 })
 export class LessonComponent implements OnInit {
 
-  cities:any[];
+  cities:object;
 
   constructor(private service : RequestService) { }
 
@@ -21,24 +21,6 @@ export class LessonComponent implements OnInit {
       this.cities = x.data
 
 
-      //sort objects in array
-      this.cities = this.cities.sort((a,b) => a.cityName.localeCompare(b.cityName))
-
-      //sum the object any property in array
-      x = this.cities.reduce((a,x)=> a+x.id,0)
-      console.log(x);
-
-      //finding object in  an array
-      let city = this.cities.find(item => item.id == 5);
-      console.log(city)
-
-      //finding the index of the element
-      console.log(this.cities.indexOf(city));
-
-
-
-      //find array with specific condition
-      this.cities = this.cities.filter(item => item.id<14)
 
     });
 
