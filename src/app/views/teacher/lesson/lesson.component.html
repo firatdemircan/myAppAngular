@@ -32,7 +32,15 @@
   </ng-container>
 </table>
 
+<select [(ngModel)]="id" (change)="deneme()">
+
+  <option value="null">Şehir Seç</option>
+  <option *ngFor="let web of cities" value={{web.id}}>{{web.cityName}}</option>
+</select>
+
+
 
 <ng-template #myTempo let-city='city'>
   {{city.cityName}}
 </ng-template>
+

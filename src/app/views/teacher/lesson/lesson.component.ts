@@ -11,6 +11,7 @@ import {City} from "../../../model/city";
 export class LessonComponent implements OnInit {
 
   cities:City[];
+  id :number = null
 
   constructor(private service : RequestService) { }
 
@@ -64,4 +65,7 @@ export class LessonComponent implements OnInit {
   }
 
 
+  deneme() {
+    console.log(this.id)
+  }
 }
