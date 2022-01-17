@@ -33,14 +33,49 @@
 </table>
 
 <select [(ngModel)]="id" (change)="deneme()">
-
   <option value="null">Şehir Seç</option>
   <option *ngFor="let web of cities" value={{web.id}}>{{web.cityName}}</option>
 </select>
+
+<br>
+<br>
+<br>
+<form [formGroup]="personForm">
+  <div>
+    <label>İsminiz</label>
+    <input formControlName="firstName" required>
+    <span ng-show="personForm.firstName.$error.required">Email is required.</span>
+
+
+    <div>
+    <label>Soyİsminiz</label>
+    <input formControlName="lastName" required>
+  </div>
+  <br>
+  <div>
+    <select formControlName ="city">
+      <option value="null">Şehir Seç</option>
+      <option *ngFor="let web of cities" value={{web.id}}>{{web.cityName}}</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <button (click)=submitForm()>Kaydet</button>
+  </div>
+
+  <br>
+  <br>
+  </div>
+
+</form>
 
 
 
 <ng-template #myTempo let-city='city'>
   {{city.cityName}}
 </ng-template>
+
+
+
+
 

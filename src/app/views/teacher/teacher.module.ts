@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LessonComponent } from './lesson/lesson.component';
 import {RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const roots:Routes =[{
 
@@ -21,6 +21,7 @@ const roots:Routes =[{
     CommonModule,
     RouterModule.forChild(roots),
     FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class TeacherModule { }
