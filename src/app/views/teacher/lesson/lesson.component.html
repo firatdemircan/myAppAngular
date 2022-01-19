@@ -31,7 +31,46 @@
     </ng-container>
   </ng-container>
 </table>
+<div style="width: 50rem;border: 1px solid silver">
+<p-table styleClass="p-datatable-gridlines p-datatable-sm"  [value]="cities" [style]="{width: '80%'}" responsiveLayout="scroll">
 
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th>id
+        <p-columnFilter type="number" field="id" display="menu"></p-columnFilter>
+      </th>
+      <th>name
+        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-city>
+    <tr>
+      <td>
+        {{city.id}}
+      </td>
+      <td>
+        {{city.cityName}}
+      </td>
+      <td>
+        <button pButton (click)="updatePanel(city)">Update</button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer" let-city>
+    <tr>
+      <td>
+        asldjkf
+      </td>
+      <td>
+        asdfg
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+</div>
 <select [(ngModel)]="id" (change)="deneme()">
   <option value="null">Şehir Seç</option>
   <option *ngFor="let web of cities" value={{web.id}}>{{web.cityName}}</option>
@@ -40,41 +79,54 @@
 <br>
 <br>
 <br>
-<form [formGroup]="personForm">
-  <div>
-    <label>İsminiz</label>
-    <input formControlName="firstName" required>
-    <span ng-show="personForm.firstName.$error.required">Email is required.</span>
+
+<button (click)="popUpAc()" pButton>Şehir Ekle</button>
 
 
+<p-dialog header="Title" [(visible)]="display" [style]="{width: '25vw'}">
+
+  <form [formGroup]="personForm">
     <div>
-    <label>Soyİsminiz</label>
-    <input formControlName="lastName" required>
-  </div>
-  <br>
-  <div>
-    <select formControlName ="city">
-      <option value="null">Şehir Seç</option>
-      <option *ngFor="let web of cities" value={{web.id}}>{{web.cityName}}</option>
-    </select>
-  </div>
-  <br>
-  <div>
-    <button (click)=submitForm()>Kaydet</button>
-  </div>
+      <div class="field">
+            <span class="p-float-label">
+                <input pInputText formControlName="firstName" required>
+              <label formControlName="firstName">İsminiz</label>
+            </span>
 
-  <br>
-  <br>
-  </div>
+      </div>
+      <br>
+      <div class="field">
+            <span class="p-float-label">
+    <input pInputText formControlName="lastName" required>
+    <label formControlName="lastName">Soyİsminiz</label>
+            </span>
 
-</form>
+      </div>
+      <br>
+      <div class="field">
+        <p-dropdown appendTo="body" [options]="cities" optionLabel="cityName" optionValue="id" formControlName="city"></p-dropdown>
+      </div>
+      <div class="field">
+        <p-selectButton appendTo="body" [options]="cities" optionLabel="cityName" optionValue="id" formControlName="city"></p-selectButton>
+      </div>
 
 
+      <br>
+      <button pButton type="button" (click)="deneme()" label="Save" icon="pi pi-check"></button>
 
+      <br>
+    </div>
+  </form>
+
+</p-dialog>
 <ng-template #myTempo let-city='city'>
   {{city.cityName}}
 </ng-template>
 
+
+<div>
+  <p-selectButton [options]="cities" optionLabel="cityName" optionValue="id" formControlName="id"></p-selectButton>
+</div>
 
 
 

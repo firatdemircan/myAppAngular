@@ -12,7 +12,7 @@ export class BaserequestService {
   constructor(private http : HttpClient) { }
   private baseUrl ="http://localhost:8050/api/";
 
-  public send(url:string,method:string,body?:any):Observable<Result<City[]>>{
+  public send(url:string,method:string,body?:any):Observable<any>{
       return this.http.request<Result<any>>(method,this.generateUrl(url),{body})
   }
 

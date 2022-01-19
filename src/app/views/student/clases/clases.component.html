@@ -1,1 +1,84 @@
-<p>clases works!</p>
+<button pButton (click)="kisiEkle()">Kişi Ekle</button>
+
+<p-table styleClass="p-datatable-gridlines p-datatable-sm" [value]="users">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>id
+        <p-columnFilter type="number" field="id" display="menu"></p-columnFilter>
+      </th>
+      <th>userName
+        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+      </th>
+      <th>
+        Rol
+        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+
+      </th>
+      <th>
+        Şube
+        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+      </th>
+    </tr>
+
+  </ng-template>
+
+  <ng-template pTemplate="body" let-user>
+
+
+    <tr>
+      <td>
+        {{user.id}}
+      </td>
+      <td>
+        {{user.userName}}
+      </td>
+      <td>
+        {{user.eRole}}
+      </td>
+      <td>
+        {{user.branch.branchName}}
+      </td>
+      <td>
+        <button pButton (click)="updatePanel(user)">Update</button>
+      </td>
+    </tr>
+
+  </ng-template>
+
+</p-table>
+
+
+<p-dialog header="Kullanıcı Ekle" [(visible)]="display"[style]="{width: '25vw'}">
+
+
+
+    <form [formGroup]="userForm">
+      <div>
+        <div class="field">
+            <span class="p-float-label">
+                <input placeholder="Kullanıcı İsmi" pInputText formControlName="userName">
+            </span>
+
+        </div>
+
+        <br>
+        <div class="field">
+          <p-dropdown appendTo="body" [options]="branch"  optionLabel="branchName" optionValue="id"
+                      formControlName="branch_id"></p-dropdown>
+        </div>
+        <div class="field">
+          <p-selectButton appendTo="body" [options]="roles" optionLabel="name" optionValue="id"
+                          formControlName="rol_id"></p-selectButton>
+        </div>
+
+        <br>
+        <button pButton type="button" visible="false" *ngIf="save" (click)="saveUser()" label="Kaydet" icon="pi pi-check"></button>
+        <button pButton type="button" visible="false" *ngIf="update" (click)="updateUser()" label="Güncelle" icon="pi pi-check"></button>
+
+        <br>
+      </div>
+    </form>
+
+
+  </p-dialog>

@@ -17,11 +17,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.service.login("sdfg","sdf","").subscribe((x)=>{
+    this.service.login("user/login","post",{userName :"firat.demircan",password :"Lucretius.2147"}).subscribe((x)=>{
 
-      // @ts-ignore
       if (x.result == "success"){
-        // @ts-ignore
         this.authService.loginSuccess(x.data)
       }
 

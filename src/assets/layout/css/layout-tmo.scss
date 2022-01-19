@@ -1,0 +1,62 @@
+$bodyBgColor: #f2f5fa;
+$topbarLeftBgColor: rgba(184, 154, 12);
+$topbarRightBgColor: rgba(184, 154, 12);
+$topbarIconHoverBgColor: rgba(255, 255, 255, 0.1);
+$topbarTextColor: #ffffff;
+$sidebarBorderColor: #d6d7d9;
+$footerBgColor: rgba(110, 101, 5);
+$statsTopBorderColor: #7e392a;
+$teamContentHoverBorderColor: #732211;
+
+$sidebarBgColor: #ffffff;
+$sidebarMenuitemTextColor: #212121;
+$sidebarMenuitemDividerColor: #e4e2e0;
+$sidebarMenuitemIconColor: #5b616a;
+$sidebarMenuitemHoverBgColor: #f1f1f1;
+$sidebarMenuitemActiveBorderLeftColor: #716800;
+$sidebarMenuitemActiveTextColor: #716800;
+$sidebarMenuitemActiveIconColor: #716800;
+
+$darkSidebarBgColor: #122e51;
+$darkSidebarMenuitemTextColor: #ffffff;
+$darkSidebarMenuitemDividerColor: rgba(255, 255, 255, 0.075);
+$darkSidebarMenuitemIconColor: #ffffff;
+$darkSidebarMenuitemHoverBgColor: rgba(255, 255, 255, 0.1);
+$darkSidebarMenuItemHoverTextColor: #716800;
+$darkSidebarMenuitemActiveBorderLeftColor: #716800;
+$darkSidebarMenuitemActiveTextColor: #716800;
+$darkSidebarMenuitemActiveIconColor: #716800;
+
+$gradientSidebarTopBgColor: #122e51;
+$gradientSidebarBottomBgColor: #295b89;
+$gradientSidebarMenuitemTextColor: #ffffff;
+$gradientSidebarMenuitemDividerColor: rgba(255, 255, 255, 0.075);
+$gradientSidebarMenuitemIconColor: #ffffff;
+$gradientSidebarMenuitemHoverBgColor: rgba(255, 255, 255, 0.1);
+$gradientSidebarMenuItemHoverTextColor: #716800;
+$gradientSidebarMenuitemActiveBorderLeftColor: #716800;
+$gradientSidebarMenuitemActiveTextColor: #716800;
+$gradientSidebarMenuitemActiveIconColor: #716800;
+
+$megamenuButtonTextColor: #ffffff;
+$megamenuBgColor: #ffffff;
+$megamenuBorderColor: #d6d7d9;
+$megamenuTextColor: #5b616a;
+$megamenuHeaderColor: #205493;
+$megamenuIconColor: #5b616a;
+$megamenuHoverBgColor: #f1f1f1;
+$megamenuActiveTextColor: #716800;
+$megamenuMobileBgColor: #294262;
+$megamenuMobileHoverBgColor: #35557e;
+
+$darkMegamenuBgColor: #122e51;
+$darkMegamenuTextColor: #ffffff;
+$darkMegamenuHeaderShadowColor: #000000;
+$darkMegamenuIconColor: #ffffff;
+$darkMegamenuHoverBgColor: rgba(255, 255, 255, 0.1);
+$darkMegamenuHoverTextColor: #00bfe7;
+
+$gradientMegamenuTopBgColor: #122e51;
+$gradientMegamenuBottomBgColor: #295b89;
+
+@import "../../sass/layout/layout";

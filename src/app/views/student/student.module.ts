@@ -4,6 +4,8 @@ import { ClasesComponent } from './clases/clases.component';
 import {RouterModule, Routes, ROUTES} from "@angular/router";
 import {AuthGuard} from "../../guards/auth.guard";
 import {StudentGuard} from "../../guards/student.guard";
+import {SharedModule} from "../../shared/shared.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const roots:Routes =[{
 
@@ -22,7 +24,9 @@ const roots:Routes =[{
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(roots)
+    RouterModule.forChild(roots),
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class StudentModule { }

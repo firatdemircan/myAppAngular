@@ -14,11 +14,13 @@ export class LessonComponent implements OnInit {
   cities:City[];
   id :number = null
   personForm : SehirEkle
+  display: boolean = false;
+
+
 
   constructor(private service : RequestService,private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
-
     this.personForm = new SehirEkle();
 
     this.service.getBy("city/getAll",'get').subscribe((x)=>{
@@ -68,12 +70,32 @@ export class LessonComponent implements OnInit {
 
 
   deneme() {
-    console.log(this.id)
+    console.log(this.personForm.value)
+    this.display = false;
+
   }
 
 
   submitForm() {
     console.log(this.personForm.value)
+    this.display = false;
   }
 
+  popUpAc() {
+    this.display = true;
+  }
+
+  updatePanel(city: any) {
+    let cityy = {
+      city : city.id,
+      firstName : city.cityName,
+      lastName : city.branch.branchName,
+      id : city.id
+
+    }
+    this.personForm.setValue(cityy)
+
+    this.display = true;
+
+  }
 }

@@ -8,6 +8,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import {FormsModule} from "@angular/forms";
 import {TeacherGuard} from "./guards/teacher.guard";
 import {StudentGuard} from "./guards/student.guard";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     FormsModule,
     RouterModule.forRoot(routes),
