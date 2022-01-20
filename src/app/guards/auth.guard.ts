@@ -20,12 +20,15 @@ export class AuthGuard implements CanActivate {
     let router;
     if (this.authService.authenticated) {
       let role = this.authService.role
-      if (role == 'teacher') {
+      if (role == 'admin') {
         router = ['/teacher'];
       }
-      else if(role == 'student'){
+      else if(role == 'user'){
         router = ['/tasra'];
 
+      }
+      else {
+        router  = ['/login']
       }
 
       this.router.navigate(router);

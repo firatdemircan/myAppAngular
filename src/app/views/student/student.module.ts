@@ -6,12 +6,14 @@ import {AuthGuard} from "../../guards/auth.guard";
 import {StudentGuard} from "../../guards/student.guard";
 import {SharedModule} from "../../shared/shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { DefaultComponent } from './default/default.component';
 
 const roots:Routes =[{
 
   path: '',
-  component: ClasesComponent,
+  component: DefaultComponent,
   children: [
+    {path: 'class', component: ClasesComponent}
 
   ],
   canActivate: [StudentGuard],
@@ -20,6 +22,7 @@ const roots:Routes =[{
 @NgModule({
   declarations: [
     ClasesComponent,
+    DefaultComponent,
 
   ],
   imports: [

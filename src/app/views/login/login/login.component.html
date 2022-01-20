@@ -1,2 +1,37 @@
-<p>login works!</p>
-<button (click)="login()">Tıkla</button>
+<div class="login-container" style="background-color: white">
+  <div class="login-form">
+    <img src="assets/img/tmo_logo.png" alt="" style="margin-left: -0.5rem" />
+    <h2 class="login-header">Angular Test Giriş</h2>
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="login-form-row">
+        <input
+          type="text"
+          formControlName="userName"
+          class="login-form-input"
+          autocomplete="off"
+          autofocus
+          required
+        />
+        <label class="login-form-label">
+          <span class="login-input-label">Kullanıcı Adı</span>
+        </label>
+      </div>
+      <div class="login-form-row">
+        <input
+          type="password"
+          formControlName="password"
+          class="login-form-input"
+          autocomplete="off"
+          required
+        />
+        <label class="login-form-label">
+          <span class="login-input-label">Şifre</span>
+        </label>
+      </div>
+
+      <div class="login-form-row">
+        <button (click)="login()" class="login-form-submit">Giriş Yap</button>
+      </div>
+    </form>
+  </div>
+</div>

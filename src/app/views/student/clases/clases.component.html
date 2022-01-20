@@ -1,23 +1,23 @@
-<button pButton (click)="kisiEkle()">Kişi Ekle</button>
 
-<p-table styleClass="p-datatable-gridlines p-datatable-sm" [value]="users">
+<div>
+  <button pButton (click)="kisiEkle()">Kişi Ekle</button>
+</div>
+<br>
+
+<p-table #dt1 [value]="users" styleClass="p-datatable-gridlines p-datatable-sm" [style]="{width: '70%'}" [globalFilterFields]="['userName','branchName']">
+
 
   <ng-template pTemplate="header">
     <tr>
       <th>id
-        <p-columnFilter type="number" field="id" display="menu"></p-columnFilter>
       </th>
       <th>userName
-        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
       </th>
       <th>
         Rol
-        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
-
       </th>
       <th>
         Şube
-        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
       </th>
     </tr>
 
@@ -49,7 +49,7 @@
 </p-table>
 
 
-<p-dialog header="Kullanıcı Ekle" [(visible)]="display"[style]="{width: '25vw'}">
+<p-dialog header="Kullanıcı Ekle" [(visible)]="display" [style]="{width: '25vw'}">
 
 
 
@@ -68,8 +68,7 @@
                       formControlName="branch_id"></p-dropdown>
         </div>
         <div class="field">
-          <p-selectButton appendTo="body" [options]="roles" optionLabel="name" optionValue="id"
-                          formControlName="rol_id"></p-selectButton>
+          <p-selectButton appendTo="body"  [options]="roles" optionLabel="name" optionValue="id" formControlName="rol_id"></p-selectButton>
         </div>
 
         <br>

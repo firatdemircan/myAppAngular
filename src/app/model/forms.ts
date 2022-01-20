@@ -26,3 +26,14 @@ export class UserForm extends FormGroup {
     });
   }
 }
+
+export class LoginForm extends FormGroup {
+  constructor() {
+    super({
+      userName: new FormControl('',
+        Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(80)])
+      ),
+      password: new FormControl('')
+    });
+  }
+}

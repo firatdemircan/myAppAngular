@@ -5,10 +5,11 @@ import {RouterModule, Routes, ROUTES} from "@angular/router";
 import {SharedModule} from "./shared/shared.module";
 import {LoginComponent} from "./views/login/login/login.component";
 import {AuthGuard} from "./guards/auth.guard";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TeacherGuard} from "./guards/teacher.guard";
 import {StudentGuard} from "./guards/student.guard";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {DefaultComponent} from "./views/student/default/default.component";
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,14 +40,11 @@ const routes: Routes = [
     SharedModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    ReactiveFormsModule
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
-
-
-
 }

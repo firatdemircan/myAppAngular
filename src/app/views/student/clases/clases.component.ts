@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BaserequestService} from "../../../service/baserequest.service";
 import {RequestService} from "../../../service/request.service";
-import {FormGroup} from "@angular/forms";
 import {UserForm} from "../../../model/forms";
 
 @Component({
@@ -63,11 +61,20 @@ export class ClasesComponent implements OnInit {
     this.save = false
     this.update = true;
 
+    let rol_id:number
+
+    if(user.eRole =="admin"){
+      rol_id = 0;
+    }
+    else{
+      rol_id = 1;
+    }
+
     console.log(user)
     this.userForm.patchValue({
       userName: user.userName,
       id : user.id,
-      rol_id : user.eRole,
+      rol_id : rol_id,
       branch_id : user.branch.id
     })
 
@@ -80,11 +87,10 @@ export class ClasesComponent implements OnInit {
     this.service.login("user/savee","post",this.userForm.value).subscribe(x=>
     {
       if(x.result =="success"){
-        this.users.push(x.data)
+        this.users.push(x.data);
+        this.display = false;
       }
     })
-
-
   }
 
   updateUser() {
@@ -92,6 +98,8 @@ export class ClasesComponent implements OnInit {
     this.service.login("user/savee","post",this.userForm.value).subscribe(x=>
     {
       if(x.result =="success"){
+        this.display = false;
+
         this.users.splice(this.users.findIndex(item=>item.id == this.userForm.value.id),1);
         this.users.push({
           userName : x.data.userName,
@@ -99,7 +107,6 @@ export class ClasesComponent implements OnInit {
           eRole : x.data.erole,
           branch : x.data.branch
         });
-        this.display = false;
 
       }
     })

@@ -1,0 +1,111 @@
+.login-container {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-10%);
+}
+
+.login-form {
+  width: 350px;
+  max-width: 95%;
+  text-align: center;
+}
+
+.login-form-row {
+  width: 100%;
+  position: relative;
+  height: 4rem;
+  overflow: hidden;
+}
+
+.login-form-row:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.login-form-input {
+  width: 100%;
+  height: 100%;
+  color: #595f6e;
+  padding-top: 1.2rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+}
+
+.login-form-input:focus + .login-form-label > .login-input-label,
+.login-form-input:valid + .login-form-label > .login-input-label {
+  -webkit-transform: translateY(-150%);
+  transform: translateY(-150%);
+  color: #8d3027;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.login-form-input:focus + .login-form-label::after,
+.login-form-input:valid + .login-form-label::after {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.login-form-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+.login-form-label::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: -1px;
+  border-bottom: 3px solid #8d3027;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.login-input-label {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.login-form-submit {
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.808);
+  background-color: #8d3027;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-form-submit:hover {
+  opacity: 0.8;
+}
+
+.login-header {
+  color: #8d3027;
+  margin-bottom: 1.5rem;
+}
+.login-error-label {
+  color: #8d3027;
+  text-align: left;
+  height: 0.5rem;
+  margin-top: 0.5rem;
+}

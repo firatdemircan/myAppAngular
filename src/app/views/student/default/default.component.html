@@ -1,0 +1,29 @@
+<div class="layout-wrapper">
+  <div class="layout-sidebar">
+    <div class="user-profile">
+      <a id="sidebar-profile-button">
+        <img
+          src="assets/img/tmo_logo.png"
+          alt="california-layout"
+          style="width: 95%; margin: auto !important"
+        />
+        <span class="sidebar-profile-name">Fırat Demircan</span>
+        <span class="sidebar-profile-role">Açıklama</span>
+      </a>
+    </div>
+    <p-menu [model]="items" [style]="{ width: '100%' }"></p-menu>
+  </div>
+
+  <div class="layout-main">
+    <div class="layout-main-content">
+      <router-outlet></router-outlet>
+    </div>
+    <footer>
+     copyRight firatdemircan **2022**
+    </footer>
+  </div>
+
+
+</div>
+
+
