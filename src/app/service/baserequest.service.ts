@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Result} from "../model/result";
-import {City} from "../model/city";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +9,7 @@ import {City} from "../model/city";
 export class BaserequestService {
 
   constructor(private http : HttpClient) { }
+
   private baseUrl ="http://localhost:8050/api/";
 
   public send(url:string,method:string,body?:any):Observable<any>{
@@ -19,6 +19,5 @@ export class BaserequestService {
   private generateUrl(url:string):string{
     return this.baseUrl+url;
   }
-
 
 }

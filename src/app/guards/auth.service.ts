@@ -16,6 +16,10 @@ export class AuthService {
     return sessionStorage.getItem('role');
   }
 
+  register(){
+    this.router.navigate(["register"]);
+  }
+
   checkLogin(){
   let token =   sessionStorage.getItem('token');
 
@@ -42,6 +46,7 @@ export class AuthService {
 
   }
 
+  this.router.navigate([]);
 
   }
 
@@ -60,16 +65,13 @@ export class AuthService {
 
     let role = JSON.stringify(dt.info.role)
     console.log(role)
-    if (role === "admin") {
-      router = ['/teacher'];
+    if (role.match('"admin"'))  {
+      router = ['teacher'];
     }
-    else if(role === "user"){
-      router = ['/student'];
+    if (role.match('"tasra"'))  {
+      router = ['student'];
+    }
 
-    }
-    else {
-      router  = ['/login']
-    }
 
     this.router.navigate(router);
 
@@ -80,10 +82,8 @@ export class AuthService {
   }
 
   logOut(){
-
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("branchName");
-
   }
 
 }

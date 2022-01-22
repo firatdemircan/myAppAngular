@@ -14,7 +14,14 @@ export class TeacherGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     console.log("Guard For Teacher Module")
-    return this.authService.authenticated
+    if(this.authService.authenticated && this.authService.role.match('"admin"')){
+      return true;
+    }
+    else{
+      this.authService.checkLogin()
+    }
+
+    return null;
 
   }
 

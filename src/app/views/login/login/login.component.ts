@@ -16,20 +16,27 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.authService.authenticated){
-      this.authService.checkLogin()
-    }
-
-
   }
 
+
+  get username(){return this.loginForm.get("userName")}
+  get password(){return this.loginForm.get("password")}
+
   login() {
-    console.log("lksdfj")
+
+    if(this.loginForm.invalid){
+      return;
+    }
     this.service.login("user/login","post",this.loginForm.value).subscribe((x)=>{
       if (x.result == "success"){
         this.authService.loginSuccess(x.data)
+        console.log(x.data)
       }
 
     })
+  }
+
+  register() {
+    this.authService.register()
   }
 }

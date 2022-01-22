@@ -9,11 +9,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TeacherGuard} from "./guards/teacher.guard";
 import {StudentGuard} from "./guards/student.guard";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {DefaultComponent} from "./views/student/default/default.component";
+import { PagenotfoundComponent } from './views/login/pagenotfound/pagenotfound.component';
+import { RegisterComponent } from './views/login/register/register.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent, canActivate :[AuthGuard] },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'teacher',
     loadChildren: () =>
@@ -26,13 +28,16 @@ const routes: Routes = [
       import('./views/student/student.module').then((x) => x.StudentModule),
     canActivate :[StudentGuard]
   },
-  { path: '**', component: LoginComponent },
+  { path: '**', component: PagenotfoundComponent,
+  canActivate :[AuthGuard]},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    PagenotfoundComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

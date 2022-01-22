@@ -1,0 +1,34 @@
+<p>register works!</p>
+
+<p-card [style]="{width: '25vw'}">
+
+
+  <form [formGroup]="userForm">
+    <div>
+      <div class="field">
+            <span class="p-float-label">
+                <input placeholder="Kullanıcı İsmi" pInputText formControlName="userName">
+            </span>
+
+      </div>
+
+      <br>
+      <div class="field">
+        <p-dropdown appendTo="body" [options]="branch" optionLabel="branchName" optionValue="id"
+                    formControlName="branch_id">
+          <option>Trabzon</option>
+        </p-dropdown>
+      </div>
+      <div class="field">
+        <p-selectButton appendTo="body" [options]="roles" optionLabel="name" optionValue="id"
+                        formControlName="rol_id"></p-selectButton>
+      </div>
+
+      <br>
+      <button pButton type="button" (click)="saveUser()" label="Kaydet" icon="pi pi-check"></button>
+
+      <br>
+    </div>
+  </form>
+
+</p-card>

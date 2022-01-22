@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { Observable } from 'rxjs';
 import {AuthService} from "./auth.service";
+import {coerceStringArray} from "@angular/cdk/coercion";
 
 @Injectable({
   providedIn: 'root'
@@ -15,26 +16,25 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    console.log()
+    console.log("kyıkhkhjkh")
 
-    let router;
+    let router =[];
+
     if (this.authService.authenticated) {
       let role = this.authService.role
-      if (role == 'admin') {
-        router = ['/teacher'];
+      if (role.match('"admin"'))  {
+        router = ['teacher'];
       }
-      else if(role == 'user'){
-        router = ['/tasra'];
-
-      }
-      else {
-        router  = ['/login']
+      if (role.match('"tasra"'))  {
+        router = ['student'];
       }
 
+      if(router != []){
       this.router.navigate(router);
+      }
     }
 
-    return null;
+    return true;
 
   }
 

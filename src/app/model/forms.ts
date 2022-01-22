@@ -6,7 +6,7 @@ export class SehirEkle extends FormGroup {
     super({
       id: new FormControl(),
       firstName: new FormControl('',
-        Validators.compose([Validators.required, Validators.minLength(15),Validators.maxLength(80)])
+        Validators.compose([Validators.required, Validators.minLength(15), Validators.maxLength(80)])
       ),
       lastName: new FormControl(''),
       city: new FormControl('')
@@ -19,7 +19,7 @@ export class UserForm extends FormGroup {
     super({
       id: new FormControl(),
       userName: new FormControl('',
-        Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(80)])
+        Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(80)])
       ),
       rol_id: new FormControl(''),
       branch_id: new FormControl('')
@@ -31,9 +31,10 @@ export class LoginForm extends FormGroup {
   constructor() {
     super({
       userName: new FormControl('',
-        Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(80)])
+        Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(80)]),
       ),
-      password: new FormControl('')
+      password: new FormControl('',
+        Validators.compose([Validators.required]))
     });
   }
 }

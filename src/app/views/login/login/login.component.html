@@ -1,6 +1,6 @@
 <div class="login-container" style="background-color: white">
   <div class="login-form">
-    <img src="assets/img/tmo_logo.png" alt="" style="margin-left: -0.5rem" />
+    <img src="assets/img/tmo_logo.png" alt="" style="margin-left: -0.5rem"/>
     <h2 class="login-header">Angular Test Giriş</h2>
     <form (ngSubmit)="login()" [formGroup]="loginForm">
       <div class="login-form-row">
@@ -16,22 +16,30 @@
           <span class="login-input-label">Kullanıcı Adı</span>
         </label>
       </div>
+      <span *ngIf="username.invalid">Kullanıcı Adınızı Girmelisiniz!!</span>
       <div class="login-form-row">
         <input
+          id="password"
           type="password"
           formControlName="password"
           class="login-form-input"
           autocomplete="off"
           required
         />
+        class="alert">
         <label class="login-form-label">
           <span class="login-input-label">Şifre</span>
         </label>
       </div>
+      <span *ngIf="password.invalid">Şifrenizi Girmelisiniz</span>
 
       <div class="login-form-row">
         <button (click)="login()" class="login-form-submit">Giriş Yap</button>
       </div>
+      <div class="login-form-row">
+        <button (click)="register()" class="login-form-submit">Kaydol</button>
+      </div>
+
     </form>
   </div>
 </div>
