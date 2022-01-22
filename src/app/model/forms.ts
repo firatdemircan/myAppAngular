@@ -19,8 +19,8 @@ export class UserForm extends FormGroup {
     super({
       id: new FormControl(),
       userName: new FormControl('',
-        Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(80)])
-      ),
+        Validators.compose([Validators.required, Validators.minLength(7), Validators.maxLength(80)]),
+  ),
       rol_id: new FormControl(''),
       branch_id: new FormControl('')
     });

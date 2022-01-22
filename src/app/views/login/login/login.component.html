@@ -16,7 +16,7 @@
           <span class="login-input-label">Kullanıcı Adı</span>
         </label>
       </div>
-      <span *ngIf="username.invalid">Kullanıcı Adınızı Girmelisiniz!!</span>
+      <span *ngIf="username.invalid && username.touched">Kullanıcı Adı En az 8 karakter olmalı!!</span>
       <div class="login-form-row">
         <input
           id="password"
@@ -31,7 +31,7 @@
           <span class="login-input-label">Şifre</span>
         </label>
       </div>
-      <span *ngIf="password.invalid">Şifrenizi Girmelisiniz</span>
+      <span *ngIf="password.invalid && password.touched">Şifrenizi Girmelisiniz</span>
 
       <div class="login-form-row">
         <button (click)="login()" class="login-form-submit">Giriş Yap</button>
