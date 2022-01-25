@@ -1,0 +1,16 @@
+<p-tabView [(activeIndex)]="index">
+  <p-tabPanel header="Header 1">
+    <app-comp-a></app-comp-a>
+  </p-tabPanel>
+  <p-tabPanel header="Header 2">
+    <app-comp-b [myValue]="myValueParent"></app-comp-b>
+  </p-tabPanel>
+  <p-tabPanel header="Header 3">
+    <app-comp-c></app-comp-c>
+  </p-tabPanel>
+</p-tabView>
+
+<button (click)="prevTab()">Geri</button>
+
+<button (click)="nextTab()">İleri</button>
+
