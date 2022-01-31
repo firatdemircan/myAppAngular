@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {TabviewComponent} from "../tabview.component";
-import {CompBComponent} from "../comp-b/comp-b.component";
+import { EventEmitter } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-comp-a',
@@ -10,19 +11,27 @@ import {CompBComponent} from "../comp-b/comp-b.component";
 export class CompAComponent implements OnInit {
 
   index: number = 0;
+  profileForm = new FormGroup({
+    tcNo: new FormControl(''),
+  });
+
+  @Output() greetEvent = new EventEmitter();
+  passParent() {
+   //console.log(this.profileForm.get("tcNo").value)
+    this.greetEvent.emit(this.profileForm.get("tcNo").value);
+  }
+
+  @Input() loggedIn:string;
+
   constructor(private tabviewComponent:TabviewComponent) {
-
-     tabviewComponent.getModel.subscribe(x=>{
-       console.log("A component")
-       console.log(x)
-     })
-
   }
 
   ngOnInit(): void {
-
-    console.log(this.tabviewComponent.model)
-    this.tabviewComponent.model.next("A component gave value")
+    console.log(this.loggedIn)
   }
 
+
+  changeModel() {
+    this.tabviewComponent.model.next("A component Değeri")
+  }
 }

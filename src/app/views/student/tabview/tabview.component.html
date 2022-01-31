@@ -1,16 +1,40 @@
 <p-tabView [(activeIndex)]="index">
+  <div class="card">
+    <p-toolbar>
+      <div class="p-toolbar-group-left">
+
+        <p-button label="Olsun" class="buttonayrik"           [style]="{ width: '15em' }"></p-button>
+        <p-button label="Olsun" class="buttonayrik"           [style]="{ width: '15em' }"></p-button>
+
+
+      </div>
+
+
+    </p-toolbar>
+  </div>
+
   <p-tabPanel header="Header 1">
-    <app-comp-a></app-comp-a>
+    <app-comp-a
+      [loggedIn]="parentloggedIn"
+      (greetEvent)="greet($event)"></app-comp-a>
   </p-tabPanel>
   <p-tabPanel header="Header 2">
-    <app-comp-b [myValue]="myValueParent"></app-comp-b>
+    <app-comp-b
+      [myValue]="parentloggedIn">
+    </app-comp-b>
   </p-tabPanel>
   <p-tabPanel header="Header 3">
     <app-comp-c></app-comp-c>
   </p-tabPanel>
 </p-tabView>
+<br>
 
 <button (click)="prevTab()">Geri</button>
 
 <button (click)="nextTab()">İleri</button>
 
+
+{{getModel}}
+
+<br>
+<br>

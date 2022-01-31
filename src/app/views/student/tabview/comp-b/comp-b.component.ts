@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TabviewComponent} from "../tabview.component";
+import {FormControl, FormGroup} from "@angular/forms";
+import {} from "rxjs"
 
 @Component({
   selector: 'app-comp-b',
@@ -8,14 +10,31 @@ import {TabviewComponent} from "../tabview.component";
 })
 export class CompBComponent implements OnInit {
 
-  constructor(private tabComponent:TabviewComponent) { }
-
-  @Input()
-  myValue:string;
-
-  ngOnInit(): void {
-
-    // this.tabComponent.model.next("I have changed")
+  constructor(private tabComponent: TabviewComponent) {
   }
 
+  someForm = new FormGroup({
+    tcNoB: new FormControl(''),
+  });
+
+
+  @Input() myValue:string;
+
+  ngOnInit(): void {
+  console.log("kimim ben : " +this.myValue);
+   // this.tabComponent.model.next("I have changed")
+    this.tabComponent.model.asObservable().subscribe(x=>
+      this.someForm.get("tcNoB").setValue(x)
+    )
+  }
+
+  ngOnChanges(){
+    if(this.myValue!= undefined){
+      this.someForm.get("tcNoB").setValue(this.myValue)
+    }
+  }
+
+  showMessage() {
+    this.tabComponent.compctext.next("i am coming from B")
+  }
 }

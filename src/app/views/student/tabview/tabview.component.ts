@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject, Subject} from "rxjs";
+import { Subject} from "rxjs";
 
 @Component({
   selector: 'app-tabview',
@@ -7,15 +7,18 @@ import {BehaviorSubject, Subject} from "rxjs";
   styleUrls: ['./tabview.component.css']
 })
 export class TabviewComponent implements OnInit {
-
+  parentloggedIn;
   index = 0;
+
   model = new Subject();
-  myValueParent="aslkdfj";
+
+  compctext = new Subject();
 
   constructor() { }
 
   ngOnInit(): void {
 
+    this.model.next("sdkjfgh")
 
   }
 
@@ -27,6 +30,7 @@ export class TabviewComponent implements OnInit {
   nextTab() {
     this.index = (this.index === 2) ? 0 : this.index + 1;
     this.model.next("NextTab");
+
   }
 
 
@@ -34,5 +38,10 @@ export class TabviewComponent implements OnInit {
     this.index = (this.index === 0) ? 2 : this.index - 1;
     this.model.next("PrevTab");
 
+  }
+
+  greet(value:string){
+    this.parentloggedIn = value
+    console.log(this.parentloggedIn)
   }
 }

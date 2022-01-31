@@ -1,4 +1,16 @@
 <p>comp-a works!</p>
-<input>
+
+<form [formGroup]="profileForm" >
+  <input formControlName="tcNo">
+
+  <button (click)="passParent()">Parente Gönderip Metod çalıştır.</button>
+
+</form>
+
+<label *ngIf="loggedIn">Giriş Yapılmış</label>
+<label *ngIf="!loggedIn">Giriş Yapılmamış</label>
+
 <br>
+<br>
+<button (click)="changeModel()">Parente Gönderip Metod çalıştır.</button>
 <br>

@@ -4,20 +4,24 @@ import { LessonComponent } from './lesson/lesson.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../../shared/shared.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CssworkComponent } from './csswork/csswork.component';
+import {ClasesComponent} from "../student/clases/clases.component";
 
 const roots:Routes =[{
 
   path: '',
-  component: LessonComponent,
+  component: CssworkComponent,
   children: [
+
+    {path: 'css', component: CssworkComponent},
 
   ],
 }]
 
 @NgModule({
   declarations: [
-    LessonComponent
+    LessonComponent,
+    CssworkComponent
   ],
   imports: [
     CommonModule,
