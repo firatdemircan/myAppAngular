@@ -1,9 +1,9 @@
 # MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
-
+!!!!IMPORTANT!!!!
 Its from my learnin stage. its like a dashboard to me.
 Has no meaning just trying stuff out.
+!!!!IMPORTANT!!!!
 
 
 ## Development server
